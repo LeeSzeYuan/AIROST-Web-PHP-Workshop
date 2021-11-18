@@ -1,5 +1,4 @@
 <?php
-//read
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -7,12 +6,11 @@
 
     //predefined
     //post is like a box
-    $name = $_POST["name"];
-    $email = $_POST["email"];
+    $id = $_GET["id"];
 
     $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-    $sql = "INSERT student_information(name, email) VALUES('$name', '$email')";
+    $sql = "DELETE FROM student_information WHERE id = $id";
 
     $result = mysqli_query($conn, $sql);
 

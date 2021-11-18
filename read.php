@@ -11,15 +11,8 @@
 
     $result = mysqli_query($conn, $sql);
 
-    // echo $result;
-    $i = 0;
-    // while($row = mysqli_fetch_array($result)){ //while there are still things inside $result, put that thong inside $row, then do
-    //     echo "row no: $i \n";
-    //     echo " ";
-    //     $i++;
-    // }
 
-    // echo "variable: ".$i." blablabla ";
+    $i = 0;
 ?>
 
 <!DOCTYPE html>
@@ -42,6 +35,8 @@
             <th>Id</th>
             <th>Name</th>
             <th>Email</th>
+            <th>Action</th>
+            <th>UDPATE</th>
         </tr>
         
         <?php
@@ -50,11 +45,13 @@
                 echo "<td>".$row['id']."</td>";
                 echo "<td>".$row['name']."</td>";
                 echo "<td>".$row['email']."</td>";
+        ?>
+                <td><a href="delete.php?id=<?php echo $row["id"]; ?>" onclick='return confirm("Are you sure?")'>DELETE</a></td>
+                <td><a href="student_update.php?id=<?php echo $row["id"]; ?>">UPDATE</a></td>
+        <?php    
                 echo "</tr>";
             }
         ?>
-    
-        
     </table>
 </body>
 </html>
